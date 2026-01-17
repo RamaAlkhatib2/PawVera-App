@@ -5,8 +5,9 @@ WORKDIR /app
 COPY pubspec.yaml .
 RUN flutter pub get
 
-COPY . .
+COPY lib/ ./lib/
+COPY test/ ./test/
 
 RUN flutter test
 
-RUN flutter build web
+RUN flutter analyze
