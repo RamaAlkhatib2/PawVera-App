@@ -20,5 +20,7 @@ jobs:
       - name: Static Analysis (Lints)
         run: flutter analyze
 
-      - name: Check for Vulnerabilities
-        run: flutter pub pub publish --dry-run
+      - name: Run Security Scan (Bandit)
+        run: |
+          pip install bandit
+          bandit -r .
