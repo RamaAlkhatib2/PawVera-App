@@ -9,4 +9,4 @@ COPY . .
 
 RUN flutter test
 
-RUN flutter build apk --release
+RUN flutter build web
