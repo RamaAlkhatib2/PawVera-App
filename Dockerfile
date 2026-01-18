@@ -8,7 +8,6 @@ COPY pubspec.yaml .
 RUN flutter pub get
 
 RUN flutter config --enable-web
-RUN flutter create . --platforms web
 COPY . .
 
 RUN flutter test
@@ -18,4 +17,5 @@ RUN flutter build web
 
 FROM nginx:alpine
 COPY --from=0 /app/build/web /usr/share/nginx/html
+
 EXPOSE 80
