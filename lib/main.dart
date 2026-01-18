@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(home: Scaffold(body: Center(child: Text("Pawvera App Ready")))));
+void main() => runApp(MaterialApp(home: LoginPage()));
 
 class PawveraLogic {
   bool validateLogin(String email, String password) {
@@ -11,5 +11,25 @@ class PawveraLogic {
   bool validateAddPet(String name, String breed) {
     if (name.isNotEmpty && breed.isNotEmpty) return true;
     return false;
+  }
+}
+
+class LoginPage extends StatelessWidget {
+  final logic = PawveraLogic();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("PawVera Login")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // تجربة المنطق البرمجي
+            bool isValid = logic.validateLogin("user@pawvera.com", "123456");
+            print("Login status: $isValid");
+          },
+          child: Text("Test Login Logic"),
+        ),
+      ),
+    );
   }
 }
